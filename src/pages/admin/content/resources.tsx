@@ -8,13 +8,21 @@ import Button from '../../../components/ui/Button';
 
 // 模拟资源数据
 const MOCK_RESOURCES = [
-  { id: 1, title: '《贵妃醉酒》演唱片段', type: 'audio', fileUrl: '/resources/audio/guifei.mp3', size: '5.2 MB', uploadDate: '2023-10-15', category: '名段欣赏' },
-  { id: 2, title: '《霸王别姬》现场视频', type: 'video', fileUrl: '/resources/video/bawang.mp4', size: '108 MB', uploadDate: '2023-09-22', category: '经典剧目' },
-  { id: 3, title: '梅兰芳大师生平照片集', type: 'image', fileUrl: '/resources/images/mei-album.zip', size: '24.6 MB', uploadDate: '2023-08-10', category: '名家图集' },
-  { id: 4, title: '京剧脸谱设计图集', type: 'image', fileUrl: '/resources/images/masks.zip', size: '18.3 MB', uploadDate: '2023-11-05', category: '教学资料' },
-  { id: 5, title: '《四郎探母》音频', type: 'audio', fileUrl: '/resources/audio/silang.mp3', size: '6.8 MB', uploadDate: '2023-10-28', category: '名段欣赏' },
-  { id: 6, title: '京剧锣鼓经典节奏', type: 'audio', fileUrl: '/resources/audio/luogu.mp3', size: '4.1 MB', uploadDate: '2023-07-15', category: '教学资料' },
-  { id: 7, title: '青衣表演技巧教学', type: 'video', fileUrl: '/resources/video/qingyi-teaching.mp4', size: '86.5 MB', uploadDate: '2023-08-30', category: '教学资料' }
+  { id: 6, title: '戏子多秋，戏梦天涯 - 视频', type: 'video', fileUrl: '/media/videos/戏子多秋，戏梦天涯.mp4', size: '3.4 MB', uploadDate: '2023-11-05', category: '纪录片' },
+  { id: 7, title: '花旦和青衣的区别 - 视频教学', type: 'video', fileUrl: '/media/videos/花旦和青衣的区别 看看花旦如何表现.mp4', size: '3.8 MB', uploadDate: '2023-10-18', category: '教学资料' },
+  { id: 8, title: '跟着老师学戏腔 - 视频教程', type: 'video', fileUrl: '/media/videos/跟着老师学戏腔 跟着老师学戏腔.mp4', size: '3.6 MB', uploadDate: '2023-10-15', category: '教学资料' },
+  { id: 5, title: '《玉堂春》视频演出', type: 'video', fileUrl: '/media/videos/玉堂春.mp4', size: '16 MB', uploadDate: '2023-11-12', category: '经典剧目' },
+  { id: 2, title: '戏子多秋，戏梦天涯', type: 'audio', fileUrl: '/media/audio/戏子多秋，戏梦天涯.mp3', size: '410 KB', uploadDate: '2023-11-10', category: '名段欣赏' },
+  { id: 3, title: '花旦和青衣的区别', type: 'audio', fileUrl: '/media/audio/花旦和青衣的区别 看看花旦如何表现.mp3', size: '473 KB', uploadDate: '2023-10-25', category: '教学资料' },
+  { id: 4, title: '跟着老师学戏腔', type: 'audio', fileUrl: '/media/audio/跟着老师学戏腔 跟着老师学戏腔.mp3', size: '474 KB', uploadDate: '2023-10-20', category: '教学资料' },
+  { id: 1, title: '《玉堂春》演唱片段', type: 'audio', fileUrl: '/media/audio/玉堂春.mp3', size: '1.0 MB', uploadDate: '2023-11-15', category: '名段欣赏' },
+  { id: 10, title: '《霸王别姬》现场视频', type: 'video', fileUrl: '/resources/video/bawang.mp4', size: '108 MB', uploadDate: '2023-09-22', category: '经典剧目' },
+  { id: 9, title: '《贵妃醉酒》演唱片段', type: 'audio', fileUrl: '/resources/audio/guifei.mp3', size: '5.2 MB', uploadDate: '2023-09-15', category: '名段欣赏' },
+  { id: 11, title: '梅兰芳大师生平照片集', type: 'image', fileUrl: '/resources/images/mei-album.zip', size: '24.6 MB', uploadDate: '2023-08-10', category: '名家图集' },
+  { id: 12, title: '京剧脸谱设计图集', type: 'image', fileUrl: '/resources/images/masks.zip', size: '18.3 MB', uploadDate: '2023-11-05', category: '教学资料' },
+  { id: 13, title: '《四郎探母》音频', type: 'audio', fileUrl: '/resources/audio/silang.mp3', size: '6.8 MB', uploadDate: '2023-08-28', category: '名段欣赏' },
+  { id: 14, title: '京剧锣鼓经典节奏', type: 'audio', fileUrl: '/resources/audio/luogu.mp3', size: '4.1 MB', uploadDate: '2023-07-15', category: '教学资料' },
+  { id: 15, title: '青衣表演技巧教学', type: 'video', fileUrl: '/resources/video/qingyi-teaching.mp4', size: '86.5 MB', uploadDate: '2023-08-30', category: '教学资料' }
 ];
 
 // 资源类型图标

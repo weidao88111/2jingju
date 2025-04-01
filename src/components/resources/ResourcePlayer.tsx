@@ -10,7 +10,6 @@ interface ResourcePlayerProps {
   src: string;
   author?: string;
   date?: string;
-  playable?: boolean;
 }
 
 const ResourcePlayer = ({
@@ -21,7 +20,6 @@ const ResourcePlayer = ({
   src,
   author,
   date,
-  playable = true,
 }: ResourcePlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(true);

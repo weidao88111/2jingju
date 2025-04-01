@@ -41,7 +41,7 @@ const Footer = () => {
               传承国粹文化，领略戏曲之美
             </p>
             <p className="text-gray-500 dark:text-gray-500 text-xs mt-6 text-center md:text-left">
-              © {currentYear} 京剧艺术网. 保留所有权利.
+              © 2025 上海建桥学院本科毕业设计 - 《基于python技术的中国传统京剧介绍网站的设计与实现》
             </p>
           </div>
           

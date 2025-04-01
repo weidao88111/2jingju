@@ -9,36 +9,6 @@ import Button from '../../components/ui/Button';
 // 模拟数据
 const audioResources = [
   {
-    id: 'audio-1',
-    title: '《贵妃醉酒》- 梅兰芳演唱',
-    description: '《贵妃醉酒》是京剧传统剧目，讲述唐明皇与杨贵妃的爱情故事。这段唱段展现了杨贵妃因皇帝失约而借酒消愁的情景，是梅派艺术的代表作。',
-    type: 'audio' as const,
-    src: '/resources/audio/guifei.mp3',
-    author: '梅兰芳',
-    date: '1930年录制',
-    playable: true,
-  },
-  {
-    id: 'audio-2',
-    title: '《四郎探母》- 言派经典唱段',
-    description: '《四郎探母》是京剧传统剧目中的经典，讲述杨四郎与铁镜公主的爱情故事以及他回到大宋与母亲相见的情节。这段唱腔体现了言派艺术风格的特点。',
-    type: 'audio' as const,
-    src: '/resources/audio/silang.mp3',
-    author: '言菊朋',
-    date: '1940年录制',
-    playable: true,
-  },
-  {
-    id: 'audio-3',
-    title: '《玉堂春》经典唱段',
-    description: '《玉堂春》是京剧传统剧目之一，这段经典唱段展示了京剧音乐的精髓和独特韵味。',
-    type: 'audio' as const,
-    src: '/media/audio/玉堂春.mp3',
-    author: '京剧名家',
-    date: '2000年代',
-    playable: true,
-  },
-  {
     id: 'audio-4',
     title: '戏子多秋，戏梦天涯',
     description: '这段音频展现了京剧艺术家对艺术的理解与情感表达，字字珠玑，韵味悠长。',
@@ -46,7 +16,6 @@ const audioResources = [
     src: '/media/audio/戏子多秋，戏梦天涯.mp3',
     author: '现代京剧艺术家',
     date: '2010年代',
-    playable: true,
   },
   {
     id: 'audio-5',
@@ -56,7 +25,6 @@ const audioResources = [
     src: '/media/audio/花旦和青衣的区别 看看花旦如何表现.mp3',
     author: '京剧理论专家',
     date: '现代录制',
-    playable: true,
   },
   {
     id: 'audio-6',
@@ -66,41 +34,37 @@ const audioResources = [
     src: '/media/audio/跟着老师学戏腔 跟着老师学戏腔.mp3',
     author: '京剧教育工作者',
     date: '现代录制',
-    playable: true,
+  },
+  {
+    id: 'audio-3',
+    title: '《玉堂春》经典唱段',
+    description: '《玉堂春》是京剧传统剧目之一，这段经典唱段展示了京剧音乐的精髓和独特韵味。',
+    type: 'audio' as const,
+    src: '/media/audio/玉堂春.mp3',
+    author: '京剧名家',
+    date: '2000年代',
+  },
+  {
+    id: 'audio-1',
+    title: '《贵妃醉酒》- 梅兰芳演唱',
+    description: '《贵妃醉酒》是京剧传统剧目，讲述唐明皇与杨贵妃的爱情故事。这段唱段展现了杨贵妃因皇帝失约而借酒消愁的情景，是梅派艺术的代表作。',
+    type: 'audio' as const,
+    src: '/resources/audio/guifei.mp3',
+    author: '梅兰芳',
+    date: '1930年录制',
+  },
+  {
+    id: 'audio-2',
+    title: '《四郎探母》- 言派经典唱段',
+    description: '《四郎探母》是京剧传统剧目中的经典，讲述杨四郎与铁镜公主的爱情故事以及他回到大宋与母亲相见的情节。这段唱腔体现了言派艺术风格的特点。',
+    type: 'audio' as const,
+    src: '/resources/audio/silang.mp3',
+    author: '言菊朋',
+    date: '1940年录制',
   },
 ];
 
 const videoResources = [
-  {
-    id: 'video-1',
-    title: '《霸王别姬》- 梅兰芳、尚小云合演',
-    description: '《霸王别姬》讲述了西楚霸王项羽与虞姬的凄美爱情故事。此视频是梅兰芳与尚小云的珍贵历史影像，展现了两位大师的精湛艺术。',
-    type: 'video' as const,
-    src: '/resources/video/bawang.mp4',
-    author: '梅兰芳、尚小云',
-    date: '1935年',
-    playable: true,
-  },
-  {
-    id: 'video-2',
-    title: '《三岔口》- 现代京剧表演',
-    description: '《三岔口》是一出以武戏为主的传统京剧，展现了扮演者精湛的武功身手和丰富的舞台表现力。此视频是现代京剧表演艺术家的精彩演绎。',
-    type: 'video' as const,
-    src: '/resources/video/sancha.mp4',
-    author: '李维康、杨赤',
-    date: '2010年',
-    playable: true,
-  },
-  {
-    id: 'video-3',
-    title: '《玉堂春》视频表演',
-    description: '《玉堂春》是京剧传统剧目之一，讲述了苏三与王金龙的故事。这段视频展示了完整的表演过程和舞台艺术。',
-    type: 'video' as const,
-    src: '/media/videos/玉堂春.mp4',
-    author: '现代京剧表演艺术家',
-    date: '现代表演',
-    playable: true,
-  },
   {
     id: 'video-4',
     title: '戏子多秋，戏梦天涯',
@@ -109,7 +73,6 @@ const videoResources = [
     src: '/media/videos/戏子多秋，戏梦天涯.mp4',
     author: '京剧艺术记录',
     date: '现代作品',
-    playable: true,
   },
   {
     id: 'video-5',
@@ -119,7 +82,6 @@ const videoResources = [
     src: '/media/videos/花旦和青衣的区别 看看花旦如何表现.mp4',
     author: '京剧表演艺术家',
     date: '教学视频',
-    playable: true,
   },
   {
     id: 'video-6',
@@ -129,12 +91,38 @@ const videoResources = [
     src: '/media/videos/跟着老师学戏腔 跟着老师学戏腔.mp4',
     author: '京剧教育工作者',
     date: '教学视频',
-    playable: true,
+  },
+  {
+    id: 'video-3',
+    title: '《玉堂春》视频表演',
+    description: '《玉堂春》是京剧传统剧目之一，讲述了苏三与王金龙的故事。这段视频展示了完整的表演过程和舞台艺术。',
+    type: 'video' as const,
+    src: '/media/videos/玉堂春.mp4',
+    author: '现代京剧表演艺术家',
+    date: '现代表演',
+  },
+  {
+    id: 'video-1',
+    title: '《霸王别姬》- 梅兰芳、尚小云合演',
+    description: '《霸王别姬》讲述了西楚霸王项羽与虞姬的凄美爱情故事。此视频是梅兰芳与尚小云的珍贵历史影像，展现了两位大师的精湛艺术。',
+    type: 'video' as const,
+    src: '/resources/video/bawang.mp4',
+    author: '梅兰芳、尚小云',
+    date: '1935年',
+  },
+  {
+    id: 'video-2',
+    title: '《三岔口》- 现代京剧表演',
+    description: '《三岔口》是一出以武戏为主的传统京剧，展现了扮演者精湛的武功身手和丰富的舞台表现力。此视频是现代京剧表演艺术家的精彩演绎。',
+    type: 'video' as const,
+    src: '/resources/video/sancha.mp4',
+    author: '李维康、杨赤',
+    date: '2010年',
   },
 ];
 
 const ResourcesPage = () => {
-  const [activeTab, setActiveTab] = useState<'audio' | 'video'>('audio');
+  const [activeTab, setActiveTab] = useState<'audio' | 'video'>('video');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedResource, setSelectedResource] = useState<string | null>(null);
   const router = useRouter();
@@ -164,36 +152,14 @@ const ResourcesPage = () => {
     }
   }, [router.query.media]);
 
-  // 获取资源并排序，将可播放的视频和音频排在最前面
-  const getFilteredResources = () => {
-    // 获取资源列表（基于当前标签）
-    let resources = activeTab === 'audio' ? audioResources : videoResources;
-    
-    // 根据搜索词筛选
-    const filtered = resources.filter(item => 
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      item.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    
-    // 排序逻辑: 可播放的排在前面
-    return filtered.sort((a, b) => {
-      // 如果播放状态不同，可播放的优先
-      if (a.playable !== b.playable) {
-        return a.playable ? -1 : 1;
-      }
-      
-      // 都可播放时，优先展示视频，其次是音频
-      if (a.type !== b.type) {
-        return a.type === 'video' ? -1 : 1;
-      }
-      
-      // 如果类型相同，保持原有顺序
-      return 0;
-    });
-  };
-
-  // 获取排序后的资源
-  const filteredResources = getFilteredResources();
+  // 筛选资源
+  const filteredResources = activeTab === 'audio' 
+    ? audioResources.filter(item => 
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        item.description.toLowerCase().includes(searchTerm.toLowerCase()))
+    : videoResources.filter(item => 
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        item.description.toLowerCase().includes(searchTerm.toLowerCase()));
 
   // 自动滚动到已选中的资源
   useEffect(() => {
@@ -242,16 +208,6 @@ const ResourcesPage = () => {
             <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-1 flex">
               <button
                 className={`flex-1 px-4 py-2 rounded-lg transition-colors ${
-                  activeTab === 'audio'
-                    ? 'bg-white dark:bg-gray-700 shadow text-red-600 dark:text-red-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                }`}
-                onClick={() => setActiveTab('audio')}
-              >
-                音频资源
-              </button>
-              <button
-                className={`flex-1 px-4 py-2 rounded-lg transition-colors ${
                   activeTab === 'video'
                     ? 'bg-white dark:bg-gray-700 shadow text-red-600 dark:text-red-400'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
@@ -259,6 +215,16 @@ const ResourcesPage = () => {
                 onClick={() => setActiveTab('video')}
               >
                 视频资源
+              </button>
+              <button
+                className={`flex-1 px-4 py-2 rounded-lg transition-colors ${
+                  activeTab === 'audio'
+                    ? 'bg-white dark:bg-gray-700 shadow text-red-600 dark:text-red-400'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                }`}
+                onClick={() => setActiveTab('audio')}
+              >
+                音频资源
               </button>
             </div>
           </div>

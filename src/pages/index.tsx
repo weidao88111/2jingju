@@ -105,12 +105,12 @@ const eventsData = [
 // 最新媒体资源
 const latestMediaResources = [
   {
-    id: 'media-1',
-    title: '《玉堂春》',
+    id: 'media-4',
+    title: '戏子多秋，戏梦天涯',
     type: 'video',
-    description: '《玉堂春》是京剧传统剧目之一，讲述了苏三与王金龙的故事。',
+    description: '这段视频记录了京剧艺术家的心路历程和对京剧艺术的理解，是难得的京剧文化纪录片段。',
     imageUrl: '/media/images/生旦净丑.png',
-    link: '/resources?media=玉堂春',
+    link: '/resources?media=戏子多秋',
   },
   {
     id: 'media-2',
