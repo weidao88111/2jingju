@@ -1,0 +1,20 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Main cloud pattern -->
+    <path d="M20 50C20 40 25 35 35 35C45 35 45 45 55 45C65 45 65 35 75 35C85 35 90 40 90 50C90 60 85 65 75 65C65 65 65 55 55 55C45 55 45 65 35 65C25 65 20 60 20 50Z" fill-opacity="0.8"/>
+    
+    <!-- Decorative swirls -->
+    <path d="M10 40C15 35 20 40 15 45C10 50 15 55 20 50" stroke-width="2" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    <path d="M90 40C85 35 80 40 85 45C90 50 85 55 80 50" stroke-width="2" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    
+    <!-- Corner decorations -->
+    <path d="M15 15L25 25M15 25H25V15" stroke-width="1.5" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+    <path d="M85 15L75 25M85 25H75V15" stroke-width="1.5" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+    <path d="M15 85L25 75M15 75H25V85" stroke-width="1.5" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+    <path d="M85 85L75 75M85 75H75V85" stroke-width="1.5" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+    
+    <!-- Center circle -->
+    <circle cx="50" cy="50" r="8" fill-opacity="0.2"/>
+    <circle cx="50" cy="50" r="4" fill-opacity="0.5"/>
+  </g>
+</svg> 

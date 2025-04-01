@@ -1,0 +1,27 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Traditional knot pattern -->
+    <path d="M50 20C40 20 35 25 35 35C35 45 45 45 45 55C45 65 35 65 35 75C35 85 40 90 50 90C60 90 65 85 65 75C65 65 55 65 55 55C55 45 65 45 65 35C65 25 60 20 50 20Z" fill-opacity="0.8"/>
+    
+    <!-- Decorative elements -->
+    <path d="M35 10C30 15 35 20 40 15C45 10 50 15 45 20" stroke-width="2" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    <path d="M65 10C70 15 65 20 60 15C55 10 50 15 55 20" stroke-width="2" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    <path d="M35 90C30 85 35 80 40 85C45 90 50 85 45 80" stroke-width="2" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    <path d="M65 90C70 85 65 80 60 85C55 90 50 85 55 80" stroke-width="2" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    
+    <!-- Diamond patterns -->
+    <path d="M15 50L25 40L35 50L25 60Z" fill-opacity="0.3"/>
+    <path d="M85 50L75 40L65 50L75 60Z" fill-opacity="0.3"/>
+    
+    <!-- Corner accents -->
+    <path d="M10 10L20 20M10 20H20V10" stroke-width="1.5" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+    <path d="M90 10L80 20M90 20H80V10" stroke-width="1.5" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+    <path d="M10 90L20 80M10 80H20V90" stroke-width="1.5" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+    <path d="M90 90L80 80M90 80H80V90" stroke-width="1.5" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+    
+    <!-- Center decoration -->
+    <circle cx="50" cy="50" r="10" stroke-width="1" fill="none" stroke="currentColor" stroke-opacity="0.4"/>
+    <circle cx="50" cy="50" r="5" fill-opacity="0.3"/>
+    <circle cx="50" cy="50" r="2" fill-opacity="0.7"/>
+  </g>
+</svg> 
