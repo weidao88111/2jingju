@@ -1,6 +1,6 @@
 # 京剧艺术网 (Jingju Art Website)
 
-这是一个基于 [Next.js](https://nextjs.org/) 搭建的中国传统京剧介绍网站，使用 [`c3`](https://developers.cloudflare.com/pages/get-started/c3) 引导创建。
+
 
 ## 项目简介
 
@@ -173,6 +173,43 @@ npm start
 4. **路由规范**
    - 遵循 Next.js App Router 规范
    - 采用层级清晰的路由结构
+
+### Git 操作指南
+
+1. **克隆项目**
+```bash
+git clone https://github.com/weidao88111/2jingju.git
+cd 2jingju
+```
+
+2. **更新代码**
+```bash
+git pull origin main
+```
+
+3. **提交更改**
+```bash
+# 添加更改的文件
+git add .
+
+# 提交更改
+git commit -m "你的提交信息"
+
+# 推送到远程仓库
+git push origin main
+```
+
+4. **分支操作**
+```bash
+# 创建并切换到新分支
+git checkout -b feature/新功能名称
+
+# 切换分支
+git checkout 分支名称
+
+# 合并分支
+git merge 分支名称
+```
 
 ## 部署方案
 
