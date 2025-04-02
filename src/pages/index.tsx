@@ -142,28 +142,67 @@ const Home: NextPage = () => {
       </Head>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-red-700 to-red-900 text-white py-20 -mx-4 px-4 mb-20 rounded-b-3xl overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10 mix-blend-overlay"></div>
+      <section className="relative bg-gradient-to-r from-red-800 to-red-900 text-white py-24 -mx-4 px-4 mb-20 rounded-b-3xl overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-15 mix-blend-overlay"></div>
+        
+        {/* 装饰元素 - 左侧 */}
+        <div className="absolute left-0 top-0 h-full w-16 md:w-32 opacity-20 pointer-events-none">
+          <Image 
+            src="/images/ornament-left.svg" 
+            alt="装饰" 
+            width={100} 
+            height={600} 
+            className="h-full w-full object-contain object-left opacity-50"
+          />
+        </div>
+        
+        {/* 装饰元素 - 右侧 */}
+        <div className="absolute right-0 top-0 h-full w-16 md:w-32 opacity-20 pointer-events-none">
+          <Image 
+            src="/images/ornament-right.svg" 
+            alt="装饰" 
+            width={100} 
+            height={600} 
+            className="h-full w-full object-contain object-right opacity-50"
+          />
+        </div>
+        
         <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-block mb-6">
+            <div className="flex items-center justify-center mb-2">
+              <div className="w-12 h-0.5 bg-red-300/60"></div>
+              <div className="mx-4">
+                <Image 
+                  src="/images/opera-mask.svg" 
+                  alt="京剧脸谱" 
+                  width={48} 
+                  height={48} 
+                  className="opacity-90"
+                />
+              </div>
+              <div className="w-12 h-0.5 bg-red-300/60"></div>
+            </div>
+          </div>
+          
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fadeIn">
             探索中国传统<br className="md:hidden" />京剧艺术的魅力
           </h1>
-          <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
+          <p className="text-xl mb-10 text-red-100 max-w-2xl mx-auto">
             传承国粹文化，领略戏曲之美
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button 
               size="lg" 
               href="/knowledge"
-              className="px-8 rounded-full shadow-lg hover:shadow-xl hover:transform hover:scale-105"
+              className="px-8 rounded-full shadow-lg hover:shadow-xl hover:transform hover:scale-105 transition-all"
             >
               开始探索
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              href="/about" 
-              className="px-8 rounded-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-700"
+              href="/knowledge" 
+              className="px-8 rounded-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-700 transition-all"
             >
               了解更多
             </Button>
@@ -175,7 +214,11 @@ const Home: NextPage = () => {
       {/* Features Section */}
       <section className="mb-24">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">探索我们的功能</h2>
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-12 h-0.5 bg-red-200 dark:bg-red-800"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mx-6">探索我们的功能</h2>
+            <div className="w-12 h-0.5 bg-red-200 dark:bg-red-800"></div>
+          </div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             多样化的功能帮助您全方位了解和学习京剧艺术
           </p>
@@ -211,7 +254,10 @@ const Home: NextPage = () => {
       <section className="mb-24">
         <div className="flex justify-between items-center mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">精选知识</h2>
+            <div className="flex items-center mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold">精选知识</h2>
+              <div className="ml-4 w-12 h-0.5 bg-red-200 dark:bg-red-800"></div>
+            </div>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
               探索京剧的历史、角色行当、著名艺术家等知识内容
             </p>
@@ -244,7 +290,11 @@ const Home: NextPage = () => {
       {/* Events Section */}
       <section className="mb-24">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">近期活动</h2>
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-12 h-0.5 bg-red-200 dark:bg-red-800"></div>
+            <h2 className="text-3xl md:text-4xl font-bold mx-6">近期活动</h2>
+            <div className="w-12 h-0.5 bg-red-200 dark:bg-red-800"></div>
+          </div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             参与线上线下京剧相关活动，近距离感受京剧魅力
           </p>
@@ -298,7 +348,10 @@ const Home: NextPage = () => {
       <section className="mb-24">
         <div className="flex justify-between items-center mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">最新资源</h2>
+            <div className="flex items-center mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold">最新资源</h2>
+              <div className="ml-4 w-12 h-0.5 bg-red-200 dark:bg-red-800"></div>
+            </div>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
               探索我们最新添加的京剧音频和视频资源
             </p>
@@ -351,7 +404,22 @@ const Home: NextPage = () => {
       {/* CTA Section */}
       <section className="mb-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-800 rounded-2xl transform -rotate-1 scale-105"></div>
-        <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl p-10 md:p-16 text-center z-10">
+        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10 mix-blend-overlay rounded-2xl"></div>
+        <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl p-10 md:p-16 text-center z-10 border border-red-100 dark:border-red-900/30">
+          <div className="flex items-center justify-center mb-6">
+            <div className="w-8 h-0.5 bg-red-200 dark:bg-red-800"></div>
+            <div className="mx-4">
+              <Image 
+                src="/images/opera-mask.svg" 
+                alt="京剧脸谱" 
+                width={36} 
+                height={36} 
+                className="opacity-70"
+              />
+            </div>
+            <div className="w-8 h-0.5 bg-red-200 dark:bg-red-800"></div>
+          </div>
+          
           <h2 className="text-3xl md:text-4xl font-bold mb-6">加入我们的京剧爱好者社区</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
             参与讨论，分享您的心得体会，与其他京剧爱好者一起交流学习
@@ -359,7 +427,7 @@ const Home: NextPage = () => {
           <Button 
             size="lg" 
             href="/community"
-            className="px-10 py-4 rounded-full shadow-lg hover:shadow-xl"
+            className="px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             立即加入
           </Button>
