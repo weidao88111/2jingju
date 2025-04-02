@@ -176,14 +176,21 @@ npm start
 
 ### Git 操作指南
 
-1. **克隆项目**
+1. **首次下载项目**
 ```bash
+# 克隆项目到本地
 git clone https://github.com/weidao88111/2jingju.git
+
+# 进入项目目录
 cd 2jingju
+
+# 安装项目依赖
+npm install
 ```
 
 2. **更新代码**
 ```bash
+# 拉取最新代码
 git pull origin main
 ```
 
@@ -209,6 +216,18 @@ git checkout 分支名称
 
 # 合并分支
 git merge 分支名称
+```
+
+5. **常见问题解决**
+```bash
+# 如果遇到冲突，先拉取最新代码
+git pull origin main
+
+# 如果本地有未提交的更改，可以先暂存
+git stash
+
+# 拉取代码后恢复暂存的更改
+git stash pop
 ```
 
 ## 部署方案
