@@ -41,7 +41,7 @@ const HistoryPage = () => {
           <div className="prose prose-lg dark:prose-invert prose-red max-w-none">
             <div className="relative w-full h-72 md:h-96 mb-8 overflow-hidden rounded-xl">
               <Image 
-                src="/images/history.jpg" 
+                src="/media/images/history.png" 
                 alt="京剧历史照片" 
                 fill
                 className="object-cover"
@@ -115,7 +115,7 @@ const HistoryPage = () => {
                 <div className="flex items-start gap-3 pb-4 border-b dark:border-gray-700">
                   <div className="relative w-20 h-20 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded overflow-hidden">
                     <Image 
-                      src="/images/roles.jpg"
+                      src="/media/images/生旦净丑.png"
                       alt="生旦净丑"
                       fill
                       className="object-cover"
@@ -141,7 +141,7 @@ const HistoryPage = () => {
                 <div className="flex items-start gap-3 pb-4 border-b dark:border-gray-700">
                   <div className="relative w-20 h-20 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded overflow-hidden">
                     <Image 
-                      src="/images/meipai.jpg"
+                      src="/media/images/meipai.png"
                       alt="梅兰芳"
                       fill
                       className="object-cover"
@@ -167,7 +167,7 @@ const HistoryPage = () => {
                 <div className="flex items-start gap-3">
                   <div className="relative w-20 h-20 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded overflow-hidden">
                     <Image 
-                      src="/images/masks.jpg"
+                      src="/media/images/masks.png"
                       alt="京剧脸谱"
                       fill
                       className="object-cover"
