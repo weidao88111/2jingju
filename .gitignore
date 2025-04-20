@@ -43,3 +43,6 @@ next-env.d.ts
 # wrangler files
 .wrangler
 .dev.vars*
+
+# 教程文件 - 不需要上传到Git
+教程.txt

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Background Circle -->
+  <circle cx="64" cy="64" r="64" fill="#f0f0f0"/>
+  
+  <!-- Head -->
+  <circle cx="64" cy="54" r="24" fill="#e74c3c"/>
+  
+  <!-- Body -->
+  <path d="M64,84 C81.673112,84 96,92.954305 102,106 C91.2949811,119.53731 73.3505279,128 64,128 C54.6494721,128 36.7050189,119.53731 26,106 C32,92.954305 46.326888,84 64,84 Z" fill="#e74c3c"/>
+  
+  <!-- Optional: Decorative elements - could be traditional Chinese opera elements -->
+  <circle cx="55" cy="50" r="3" fill="#f0f0f0"/> <!-- Left eye -->
+  <circle cx="73" cy="50" r="3" fill="#f0f0f0"/> <!-- Right eye -->
+  
+  <!-- Traditional opera mask styling hint -->
+  <path d="M64,64 C67,64 71,62 71,58 C71,56 69,55 64,55 C59,55 57,56 57,58 C57,62 61,64 64,64 Z" fill="#f0f0f0"/> <!-- Stylized mouth/nose area -->
+  
+  <!-- Decorative line for eyebrows - opera style -->
+  <path d="M50,44 C55,41 58,42 60,43" stroke="#f0f0f0" stroke-width="2" fill="none"/>
+  <path d="M78,44 C73,41 70,42 68,43" stroke="#f0f0f0" stroke-width="2" fill="none"/>
+</svg> 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Layout from '../../../components/layout/Layout';
+import AdminLayout from '../../../components/layout/AdminLayout';
 import Card, { CardBody, CardHeader } from '../../../components/ui/Card';
 import Button from '../../../components/ui/Button';
 
@@ -125,19 +125,19 @@ const UsersPage = () => {
 
   if (isLoading) {
     return (
-      <Layout>
+      <AdminLayout>
         <div className="flex justify-center items-center min-h-[60vh]">
           <p className="text-gray-500 dark:text-gray-400">加载中...</p>
         </div>
-      </Layout>
+      </AdminLayout>
     );
   }
 
   return (
-    <Layout>
+    <AdminLayout>
       <Head>
         <title>用户管理 - 京剧艺术网</title>
-        <meta name="description" content="管理京剧艺术网的用户、权限和账户信息" />
+        <meta name="description" content="管理京剧艺术网的用户账户" />
       </Head>
 
       {/* 页面标题 */}
@@ -430,7 +430,7 @@ const UsersPage = () => {
           </CardBody>
         </Card>
       </div>
-    </Layout>
+    </AdminLayout>
   );
 };
 

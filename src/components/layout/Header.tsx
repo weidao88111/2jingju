@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import UserMenu from './UserMenu';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +30,14 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const navItems = [
+    { path: '/', label: '首页', excludePaths: ['/knowledge', '/community', '/resources'] },
+    { path: '/knowledge', label: '知识库' },
+    { path: '/community', label: '社区' },
+    { path: '/resources', label: '资源' },
+    // { path: '/admin', label: '管理' } // Removed Admin link
+  ];
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
@@ -107,13 +116,7 @@ const Header = () => {
 
           {/* 桌面菜单 */}
           <nav className="hidden md:flex space-x-1 items-center">
-            {[
-              { path: '/', label: '首页', excludePaths: ['/knowledge', '/community', '/resources', '/admin'] },
-              { path: '/knowledge', label: '知识库' },
-              { path: '/community', label: '社区' },
-              { path: '/resources', label: '资源' },
-              { path: '/admin', label: '管理' }
-            ].map((item) => {
+            {navItems.map((item) => {
               const active = item.excludePaths 
                 ? isActive(item.path) && !item.excludePaths.some(p => isActive(p))
                 : isActive(item.path);
@@ -152,10 +155,19 @@ const Header = () => {
                 </Link>
               );
             })}
+            
+            {/* 用户菜单组件 */}
+            <div className="ml-4">
+              <UserMenu />
+            </div>
           </nav>
 
-          {/* 移动端菜单按钮 */}
-          <div className="md:hidden flex items-center">
+          {/* 移动端菜单按钮和用户菜单 */}
+          <div className="md:hidden flex items-center space-x-2">
+            <div className="mr-2">
+              <UserMenu />
+            </div>
+            
             <button
               onClick={toggleMenu}
               className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 focus:outline-none border border-transparent hover:border-red-200 dark:hover:border-red-800 transition-colors"
@@ -193,27 +205,20 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-b border-gray-100 dark:border-gray-800">
           <div className="px-4 pt-2 pb-3 space-y-1.5 max-w-7xl mx-auto">
-            {[
-              { path: '/', label: '首页', excludePaths: ['/knowledge', '/community', '/resources', '/admin'] },
-              { path: '/knowledge', label: '知识库' },
-              { path: '/community', label: '社区' },
-              { path: '/resources', label: '资源' },
-              { path: '/admin', label: '管理' }
-            ].map((item) => {
+            {navItems.map((item) => {
               const active = item.excludePaths 
                 ? isActive(item.path) && !item.excludePaths.some(p => isActive(p))
                 : isActive(item.path);
               
               return (
-                <Link 
+                <Link
                   key={item.path}
-                  href={item.path} 
-                  className={`
-                    block px-4 py-2.5 rounded-md font-medium border-l-2 transition-all
-                    ${active 
-                      ? 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-500' 
-                      : 'text-gray-700 dark:text-gray-300 border-transparent'}
-                  `}
+                  href={item.path}
+                  className={`block px-3 py-2.5 rounded-lg font-medium ${
+                    active
+                      ? 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}

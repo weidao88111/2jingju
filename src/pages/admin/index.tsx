@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
-import Layout from '../../components/layout/Layout';
+import AdminLayout from '../../components/layout/AdminLayout';
 import Card, { CardBody } from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 
@@ -83,17 +84,17 @@ const AdminPage = () => {
 
   if (isLoading) {
     return (
-      <Layout>
+      <AdminLayout>
         <div className="flex justify-center items-center min-h-[60vh]">
           <p className="text-gray-500 dark:text-gray-400">加载中...</p>
         </div>
-      </Layout>
+      </AdminLayout>
     );
   }
 
   // 已登录状态显示管理控制台
   return (
-    <Layout>
+    <AdminLayout>
       <Head>
         <title>管理控制台 - 京剧艺术网</title>
         <meta name="description" content="京剧艺术网管理控制台，管理网站内容、用户和统计数据" />
@@ -102,7 +103,14 @@ const AdminPage = () => {
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">管理控制台</h1>
         <div className="flex items-center space-x-4">
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+            <Image
+              src="/images/admin-avatar.svg"
+              alt="管理员头像"
+              width={32}
+              height={32}
+              className="rounded-full mr-2"
+            />
             管理员：<span className="font-medium">京剧爱好者</span>
           </div>
           <Button variant="outline" size="sm" onClick={handleLogout}>
@@ -130,7 +138,7 @@ const AdminPage = () => {
           title="社区问题"
           value="458"
           desc="待回复问题 32 个"
-          link="/admin/community"
+          link="/admin/content/comments"
           linkText="管理社区内容"
           color="blue"
         />
@@ -303,7 +311,7 @@ const AdminPage = () => {
           </div>
         </CardBody>
       </Card>
-    </Layout>
+    </AdminLayout>
   );
 };
 

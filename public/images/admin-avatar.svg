@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Background Circle -->
+  <circle cx="64" cy="64" r="64" fill="#f0f0f0"/>
+  
+  <!-- Head -->
+  <circle cx="64" cy="54" r="24" fill="#3498db"/>
+  
+  <!-- Body -->
+  <path d="M64,84 C81.673112,84 96,92.954305 102,106 C91.2949811,119.53731 73.3505279,128 64,128 C54.6494721,128 36.7050189,119.53731 26,106 C32,92.954305 46.326888,84 64,84 Z" fill="#3498db"/>
+  
+  <!-- Admin crown -->
+  <path d="M40,36 L52,44 L64,32 L76,44 L88,36 L84,52 L44,52 L40,36 Z" fill="#f1c40f"/>
+  
+  <!-- Eyes -->
+  <circle cx="55" cy="50" r="3" fill="#f0f0f0"/>
+  <circle cx="73" cy="50" r="3" fill="#f0f0f0"/>
+  
+  <!-- Mouth/smile -->
+  <path d="M56,62 C56,66 60,70 64,70 C68,70 72,66 72,62" stroke="#f0f0f0" stroke-width="2" fill="none"/>
+  
+  <!-- Traditional opera decoration lines -->
+  <path d="M48,46 C53,43 58,44 60,45" stroke="#f0f0f0" stroke-width="2" fill="none"/>
+  <path d="M80,46 C75,43 70,44 68,45" stroke="#f0f0f0" stroke-width="2" fill="none"/>
+</svg> 

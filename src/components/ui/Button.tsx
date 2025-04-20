@@ -51,7 +51,7 @@ const Button = ({
   
   if (href) {
     return (
-      <Link href={href} className={buttonStyles}>
+      <Link href={href} className={buttonStyles} passHref>
         {content}
       </Link>
     );
