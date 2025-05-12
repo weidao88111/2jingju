@@ -5,23 +5,27 @@ import { useRouter } from 'next/router';
 import AdminLayout from '../../../components/layout/AdminLayout';
 import Card, { CardBody, CardHeader } from '../../../components/ui/Card';
 import Button from '../../../components/ui/Button';
+import { useContent } from '../../../lib/context/ContentContext';
+import DebugPanel from '../../../components/ui/DebugPanel';
 
 // 模拟内容数据
 const MOCK_ARTICLES = [
-  { id: 1, title: '京剧的起源与发展', category: '京剧历史', author: '京剧爱好者', status: 'published', date: '2023-10-15' },
-  { id: 2, title: '梅兰芳的艺术成就', category: '名家介绍', author: '京剧爱好者', status: 'published', date: '2023-10-20' },
-  { id: 3, title: '京剧脸谱的色彩象征', category: '京剧元素', author: '清音悠扬', status: 'published', date: '2023-11-05' },
-  { id: 4, title: '京剧常见角色类型', category: '京剧知识', author: '京剧爱好者', status: 'draft', date: '2023-11-10' },
-  { id: 5, title: '京剧经典剧目介绍', category: '剧目赏析', author: '戏迷小王', status: 'draft', date: '2023-11-15' },
-  { id: 6, title: '京剧表演技巧分析', category: '表演艺术', author: '京剧爱好者', status: 'review', date: '2023-11-20' },
-  { id: 7, title: '京剧音乐特点探究', category: '京剧音乐', author: '京韵悠长', status: 'published', date: '2023-11-25' },
-  { id: 8, title: '京剧服装的历史变迁', category: '京剧元素', author: '京剧爱好者', status: 'draft', date: '2023-12-01' },
+  { id: 1, title: '京剧的历史起源', category: '历史', author: '京剧研究者', status: 'published', date: '2023-10-15' },
+  { id: 2, title: '生旦净丑 - 京剧角色行当', category: '行当', author: '京剧爱好者', status: 'published', date: '2023-10-20' },
+  { id: 3, title: '梅兰芳与"梅派"艺术', category: '名家', author: '戏曲专家', status: 'published', date: '2023-11-05' },
+  { id: 4, title: '《霸王别姬》剧目解析', category: '剧目', author: '京剧评论家', status: 'published', date: '2023-11-10' },
+  { id: 5, title: '京剧脸谱艺术', category: '文化', author: '清音悠扬', status: 'published', date: '2023-11-15' },
+  { id: 6, title: '程派艺术特色', category: '流派', author: '京韵悠长', status: 'published', date: '2023-11-20' },
+  { id: 7, title: '京剧常见角色类型', category: '京剧知识', author: '京剧爱好者', status: 'draft', date: '2023-11-25' },
+  { id: 8, title: '京剧经典剧目介绍', category: '剧目赏析', author: '戏迷小王', status: 'draft', date: '2023-12-01' },
+  { id: 9, title: '京剧表演技巧分析', category: '表演艺术', author: '京剧爱好者', status: 'review', date: '2023-12-05' },
+  { id: 10, title: '京剧服装的历史变迁', category: '京剧元素', author: '京剧爱好者', status: 'draft', date: '2023-12-10' },
 ];
 
 const ContentPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  const [articles, setArticles] = useState(MOCK_ARTICLES);
+  const { articles, handleStatusChange, handleDelete } = useContent();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -60,19 +64,17 @@ const ContentPage = () => {
   const currentItems = filteredArticles.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
 
-  // 处理文章状态变更
-  const handleStatusChange = (id: number, newStatus: string) => {
-    setArticles(prevArticles => 
-      prevArticles.map(article => 
-        article.id === id ? { ...article, status: newStatus } : article
-      )
-    );
+  // 处理状态变更
+  const onStatusChange = (id: number, newStatus: 'published' | 'draft' | 'review') => {
+    console.log(`Admin page: changing status of article ${id} to ${newStatus}`);
+    handleStatusChange(id, newStatus);
   };
 
-  // 处理文章删除
-  const handleDelete = (id: number) => {
+  // 处理删除
+  const onDelete = (id: number) => {
     if (window.confirm('确定要删除这篇文章吗？')) {
-      setArticles(prevArticles => prevArticles.filter(article => article.id !== id));
+      console.log(`Admin page: deleting article ${id}`);
+      handleDelete(id);
     }
   };
 
@@ -218,7 +220,7 @@ const ContentPage = () => {
                             <Button 
                               variant="outline" 
                               size="sm"
-                              onClick={() => handleStatusChange(article.id, 'published')}
+                              onClick={() => onStatusChange(article.id, 'published')}
                             >
                               发布
                             </Button>
@@ -226,7 +228,7 @@ const ContentPage = () => {
                             <Button 
                               variant="outline" 
                               size="sm"
-                              onClick={() => handleStatusChange(article.id, 'draft')}
+                              onClick={() => onStatusChange(article.id, 'draft')}
                             >
                               下架
                             </Button>
@@ -235,7 +237,7 @@ const ContentPage = () => {
                             variant="outline" 
                             size="sm"
                             className="text-red-600 dark:text-red-400 border-red-600 dark:border-red-400 hover:bg-red-50 dark:hover:bg-red-900/20"
-                            onClick={() => handleDelete(article.id)}
+                            onClick={() => onDelete(article.id)}
                           >
                             删除
                           </Button>
@@ -327,6 +329,9 @@ const ContentPage = () => {
           </CardBody>
         </Card>
       </div>
+      
+      {/* Debug Panel */}
+      <DebugPanel />
     </AdminLayout>
   );
 };
