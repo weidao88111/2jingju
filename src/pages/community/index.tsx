@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Layout from '../../components/layout/Layout';
 import Card, { CardHeader, CardBody, CardFooter } from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
+import { forumPosts, initPosts } from '../../data/posts';
 
 // 模拟数据 - 热门问题
 const popularQuestions = [
@@ -83,8 +85,26 @@ const discussionGroups = [
 ];
 
 const CommunityPage = () => {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'questions' | 'groups'>('questions');
+  const [activeTab, setActiveTab] = useState<'questions' | 'groups' | 'posts'>('questions');
+
+  // 初始化帖子数据
+  useEffect(() => {
+    initPosts();
+  }, []);
+
+  // 从URL参数中获取tab并设置activeTab
+  useEffect(() => {
+    const { tab } = router.query;
+    if (tab === 'posts') {
+      setActiveTab('posts');
+    } else if (tab === 'groups') {
+      setActiveTab('groups');
+    } else if (tab === 'questions') {
+      setActiveTab('questions');
+    }
+  }, [router.query]);
 
   return (
     <Layout>
@@ -120,9 +140,16 @@ const CommunityPage = () => {
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button href="/community/ask" className="whitespace-nowrap">
-            提问问题
-          </Button>
+          {activeTab === 'questions' && (
+            <Button href="/community/ask" className="whitespace-nowrap">
+              提问问题
+            </Button>
+          )}
+          {activeTab === 'posts' && (
+            <Button href="/community/post/create" className="whitespace-nowrap">
+              发布帖子
+            </Button>
+          )}
           <Button href="/community/ai" variant="outline" className="whitespace-nowrap">
             AI助手
           </Button>
@@ -155,6 +182,19 @@ const CommunityPage = () => {
           >
             讨论组
             {activeTab === 'groups' && (
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 dark:bg-red-400"></span>
+            )}
+          </button>
+          <button
+            className={`pb-4 font-medium text-sm cursor-pointer relative ${
+              activeTab === 'posts'
+                ? 'text-red-600 dark:text-red-400'
+                : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
+            }`}
+            onClick={() => setActiveTab('posts')}
+          >
+            帖子讨论
+            {activeTab === 'posts' && (
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 dark:bg-red-400"></span>
             )}
           </button>
@@ -247,34 +287,101 @@ const CommunityPage = () => {
         </div>
       )}
 
-      {/* 社区指南 */}
-      <Card className="mt-12 bg-gray-50 dark:bg-gray-800/50 border-0">
-        <CardHeader>
-          <h2 className="text-xl font-bold">社区指南</h2>
-        </CardHeader>
-        <CardBody>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <h3 className="font-semibold mb-2">尊重彼此</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                尊重社区中的每一位成员，不攻击、侮辱他人，保持友善的交流氛围。
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2">专注京剧</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                讨论内容应与京剧艺术相关，避免发布与京剧无关的主题或垃圾信息。
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-2">互助学习</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                鼓励分享知识和经验，对他人的问题提供有建设性的回答和建议。
-              </p>
-            </div>
+      {/* 帖子列表 */}
+      {activeTab === 'posts' && (
+        <div className="space-y-4">
+          {forumPosts.map((post) => (
+            <Card key={post.id} className="overflow-hidden hover:shadow-md transition-shadow">
+              <CardBody>
+                <div className="flex flex-col">
+                  <Link href={`/community/post/${post.id}`}>
+                    <h3 className="text-lg font-semibold mb-2 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                      {post.title}
+                    </h3>
+                  </Link>
+                  
+                  <p className="text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+                    {post.content}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {post.tags.map((tag, index) => (
+                      <span 
+                        key={index} 
+                        className="inline-block bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs px-2 py-0.5 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center text-gray-500 dark:text-gray-400">
+                      <span className="mr-4">由 {post.author} 发布</span>
+                      <span>{post.date}</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-4 text-gray-500 dark:text-gray-400">
+                      <div className="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <span>{post.views}</span>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                        <span>{Array.isArray(post.comments) ? post.comments.length : post.comments}</span>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        <span>{post.likes}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardBody>
+            </Card>
+          ))}
+          
+          <div className="text-center mt-6">
+            <Button href="/community/posts" variant="outline">
+              查看更多帖子
+            </Button>
           </div>
-        </CardBody>
-      </Card>
+        </div>
+      )}
+
+      {/* 社区指南 */}
+      <div className="mt-16 p-6 bg-gradient-to-r from-red-50 to-amber-50 dark:from-gray-800 dark:to-gray-900 rounded-xl">
+        <h2 className="text-xl font-bold mb-4">社区指南</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <div>
+            <h3 className="font-semibold mb-2">尊重与包容</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
+              尊重每一位社区成员，包容不同的意见和见解。不发表具有歧视、攻击性或冒犯性的言论。
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">专注与相关</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
+              保持帖子和讨论与京剧相关。避免发布与社区主题无关的内容或广告。
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">互助与分享</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
+              鼓励知识分享和互助精神。回答问题时提供有建设性的建议，分享您的经验和见解。
+            </p>
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 };
